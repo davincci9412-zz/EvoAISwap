@@ -4,6 +4,8 @@ import { ethers } from 'ethers'
 import { useState } from 'react'
 import contractAbi from './abi';
 import evotAbi from './evotAbi';
+import {BN} from 'bn.js';
+
 
 function App() {
   const contractAddress = '0xD470D600A255DBa6aCc6F2259B044aCD5a51E947';
@@ -35,7 +37,8 @@ function App() {
     if (walletAddress) {
       try {
         togglePanel(true)
-        const transactionAmount = amount * 1000000000000000000;
+        const zeros = '000000000000000000'
+        const transactionAmount = amount + zeros;
         let provider = new ethers.providers.Web3Provider(window.ethereum);
         const signer = provider.getSigner()
         const evotInstance = new ethers.Contract(EVOAIcontractAddress, evotAbi, signer);
@@ -79,12 +82,13 @@ function App() {
         alert('Please First Approve Your transaction')
         return false;
       }
-
+      
       try {
         togglePanel(true)
-        const transactionAmount = amount * 1000000000000000000;
+        const zeros = '000000000000000000'
+        const transactionAmount = amount + zeros;
         let provider = new ethers.providers.Web3Provider(window.ethereum);
-         const signer = provider.getSigner()
+        const signer = provider.getSigner()
         const contractInstance = new ethers.Contract(contractAddress, contractAbi, signer)
         const overrides = {
           gasLimit: 3000000 //optional
