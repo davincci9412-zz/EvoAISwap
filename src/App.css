@@ -84,3 +84,18 @@
 	text-decoration:none;
 	text-shadow:0px 2px 0px #3d2866;
 }
+
+.middle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position:fixed;
+  width:100%;
+  left:0;right:0;top:0;bottom:0;
+  background-color: rgba(255,255,255,0.7);
+  z-index:9999;
+  /* display:none; */
+}
+.middle-container img {
+  height: 100px;
+}
