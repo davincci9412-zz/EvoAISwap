@@ -4,7 +4,6 @@ import { ethers } from 'ethers'
 import { useState } from 'react'
 import contractAbi from './abi';
 import evotAbi from './evotAbi';
-import {BN} from 'bn.js';
 
 
 function App() {
